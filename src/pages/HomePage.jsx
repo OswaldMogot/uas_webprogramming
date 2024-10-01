@@ -33,7 +33,7 @@ const HomePage = () => {
               <p>{recipe.ingredients.join(", ")}</p> {/* Assuming ingredients is an array */}
             </div>
             <div className="card-button flex justify-center">
-              <Link to={'resep/ + recipe.id '} className="btn btn-primary">Let's Cook</Link> 
+              <Link to={"/recipe/" + recipe.id } className="btn btn-primary">Lets Cook</Link> 
             </div>
           </div>
         ))}

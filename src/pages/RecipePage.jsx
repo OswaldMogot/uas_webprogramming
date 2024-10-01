@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
-  const apiurl = `https://dummyjson.com/recipes/${recipeId}`;
+  const apiurl = "https://dummyjson.com/recipes/" + recipeId;
   
   const [recipe, setRecipe] = useState(); 
  
@@ -21,14 +21,14 @@ const RecipePage = () => {
 
       {recipe ? (
         <div>
-          <h1 className="text-2xl font-bold">{recipe.title}</h1>
-          <img src={recipe.image} alt={recipe.title} className="w-full h-auto" />
-          <p className="mt-4">{recipe.description}</p>
+          <h1 className="text-2xl font-bold">{recipe.name}</h1>
           <h2 className="mt-6 font-semibold">Ingredients</h2>
           <ul className="list-disc pl-5">
             {recipe.ingredients ? (
-              recipe.ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+              recipe.ingredients.map((ingredient, i) => (
+                <>
+                <li>{ingredient}</li>
+                </>
               ))
             ) : (
               <li>No ingredients available.</li>
@@ -37,8 +37,10 @@ const RecipePage = () => {
           <h2 className="mt-6 font-semibold">Instructions</h2>
           <ol className="list-decimal pl-5">
             {recipe.instructions ? (
-              recipe.instructions.map((instruction, index) => (
-                <li key={index}>{instruction}</li>
+              recipe.instructions.map((instruction) => (
+               <>
+                <li>{instruction}</li>
+               </>
               ))
             ) : (
               <li>No instructions available.</li>
